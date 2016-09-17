@@ -1,0 +1,19 @@
+<h1>Add review</h1>
+
+<div style="border: 2px solid #aaaaaa; border-radius: 3px; width: 400px; padding: 15px;">
+	<h3 style="margin-top: 0;"><%= @exercise.name %></h3>
+	<h6>Category: <%= @exercise.category %></h6>
+	Description: <p><%= @exercise.description %></p>
+	<br>
+	<span>Rating: <%= @exercise.rating %></span>
+</div>
+
+<%= simple_form_for @review do |f| %>
+	<%= f.input :name %>
+	<%= f.input :comments %>
+	<%= f.input :rating %>
+	<%= f.hidden_field :exercise_id, value: @exercise.id %>
+	<br>
+	<br>
+	<%= f.button :submit %>
+<% end %>

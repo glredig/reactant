@@ -11,13 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160729210819) do
+ActiveRecord::Schema.define(version: 20160729222939) do
 
   create_table "exercises", force: :cascade do |t|
     t.text  "category"
     t.text  "name"
     t.text  "description"
     t.float "rating",      default: 3.0
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text    "name"
+    t.text    "comments"
+    t.integer "rating",      default: 3
+    t.integer "exercise_id"
   end
 
 end

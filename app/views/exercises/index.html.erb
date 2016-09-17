@@ -2,11 +2,25 @@
 
 <%= link_to "New", new_exercise_path %>
 <% @exercises.each do |exercise| %>
-	<div style="border: 2px solid #aaaaaa; border-radius: 3px; width: 400px; padding: 15px;">
+	<div style="border: 2px solid #aaaaaa; border-radius: 3px; width: 400px; padding: 15px; margin-top: 20px;">
 		<h3 style="margin-top: 0;"><%= exercise.name %></h3>
-		<h6>Category: <%= exercise.category %></h6>
+		<h5>Category: <%= exercise.category %></h5>
 		Description: <p><%= exercise.description %></p>
 		<br>
 		<span>Rating: <%= exercise.rating %></span>
+		<br>
+		<br>
+		<h5>Reviews (<%= link_to "Add Review", new_review_path(exercise_id: exercise.id) %>)</h5>
+
+		<ul style="list-style-type: none;">
+			<% exercise.reviews.each do |review| %>
+				<li style="border-bottom: 1px solid #bbbbdd; padding-top: 10px;">
+					<strong><%= review.rating %></strong> - <em>by <%= review.name %></em>
+					<br>
+					<p><%= review.comments %></p>
+				</li>
+			<% end %>
+		</ul>
+
 	</div>
 <% end %>
