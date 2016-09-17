@@ -16,7 +16,6 @@ var NewExercise = React.createClass({
 	render() {
 		return (
 			<div>
-
 				<input ref='name' placeholder='Exercise name' />
 				<input ref='description' placeholder='Description' />
 				<button onClick={this.handleClick}>Submit</button>

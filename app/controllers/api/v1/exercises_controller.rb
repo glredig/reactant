@@ -22,7 +22,7 @@ class Api::V1::ExercisesController < Api::V1::BaseController
 	end
 
 	def destroy
-		respond_width Excercise.destroy(params[:id])
+		respond_with Exercise.destroy(params[:id])
 	end
 
 	private
