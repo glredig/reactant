@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
 gem 'react-rails'
+gem 'responders'
 
 group :development, :test do
   gem 'byebug'
