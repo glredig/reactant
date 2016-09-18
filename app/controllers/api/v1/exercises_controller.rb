@@ -3,22 +3,14 @@ class Api::V1::ExercisesController < Api::V1::BaseController
 		respond_with Exercise.all
 	end
 
-	def new
-		@exercise = Exercise.new()
-	end
-
 	def create
 		respond_with :api, :v1, Exercise.create(exercise_params)
-	end
-
-	def edit
-		@exercise = Exercise.find(params[:id])
 	end
 
 	def update
 		exercise = Exercise.find(params[:id])
 		exercise.update_attributes(exercise_params)
-		respond_width exercise, json: exercise
+		respond_with exercise, json: exercise
 	end
 
 	def destroy

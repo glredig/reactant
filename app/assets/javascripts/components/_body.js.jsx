@@ -23,6 +23,27 @@ var Body = React.createClass({
 		});
 	},
 
+	handleExerciseUpdate(exercise) {
+		$.ajax({
+			url: `/api/v1/exercises/${exercise.id}`,
+			type: 'PUT',
+			data: { exercise: exercise },
+			success: () => {
+				this.updateExercises(exercise);
+			}
+		});
+	},
+
+	updateExercises(exercise) {
+		console.log('update');
+		var exercises = this.state.exercises.filter((i) => {
+			return i.id != exercise.id
+		});
+		exercises.push(exercise);
+
+		this.setState({exercises: exercises});
+	},
+
 	removeExerciseById(id) {
 		var newState = this.state.exercises.filter((exercise) => {
 				return exercise.id != id;
@@ -35,7 +56,7 @@ var Body = React.createClass({
 	  return (
 	  	<div>
 	  		<NewExercise handleSubmit={this.handleExerciseSubmit} />
-	  		<AllExercises exercises={this.state.exercises} handleDelete={this.handleExerciseDelete} />
+	  		<AllExercises exercises={this.state.exercises} handleDelete={this.handleExerciseDelete} onUpdate={this.handleExerciseUpdate} />
 	  	</div>
 	  )
 	}

@@ -3,13 +3,17 @@ var AllExercises = React.createClass({
 		this.props.handleDelete(id);
 	},
 
+	onUpdate(exercise) {
+		this.props.onUpdate(exercise);
+	},
+
 	render() {
 		var exercises = this.props.exercises.map((exercise) => {
 			return (
 				<div key={exercise.id} >
-					<h3>{exercise.name}</h3>
-					<p>{exercise.description}</p>
-					<button onClick={this.handleDelete.bind(this, exercise.id)}>Delete</button>
+					<Exercise exercise={exercise}
+							  handleDelete={this.handleDelete.bind(this, exercise.id)}
+							  onUpdate={this.onUpdate} />
 				</div>
 			);
 		});
