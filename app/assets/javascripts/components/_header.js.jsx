@@ -1,7 +1,9 @@
 var Header = React.createClass({
 	render() {
 		return (
-			<h1>Reactant!</h1>
+			<header>
+				<a class="home_link">Reactant!</a>
+			</header>
 		)
 	}
 });

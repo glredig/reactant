@@ -17,7 +17,6 @@ var Exercise = React.createClass({
 	},
 
 	render() {
-		console.log('this', this);
 		var name = this.state.editable ? <input type='text' ref='name' defaultValue={this.props.exercise.name} /> : <h3>{this.props.exercise.name}</h3>;
 		var description = this.state.editable ? <input type='text' ref='description' defaultValue={this.props.exercise.description} /> : <p>{this.props.exercise.description}</p>;
 

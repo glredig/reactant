@@ -35,7 +35,6 @@ var Body = React.createClass({
 	},
 
 	updateExercises(exercise) {
-		console.log('update');
 		var exercises = this.state.exercises.filter((i) => {
 			return i.id != exercise.id
 		});
